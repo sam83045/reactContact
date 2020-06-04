@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Icon } from "semantic-ui-react";
 import styled from "styled-components";
+import CreateContact from "./create-contact";
 
 const StyledCard = styled(Card)`
 &&&{margin-top: 1rem;}
@@ -18,6 +19,7 @@ cursor: pointer;
 `;
 
 const ContactCard = ({ contactDetails }) => {
+    const [open, setOpen] = useState(false);
     return (
         <StyledCard>
             <Card.Content>
@@ -35,7 +37,8 @@ const ContactCard = ({ contactDetails }) => {
                     <br />
 
                     <StyledPara>
-                        <SytledIcon name='edit' color="green" title="Edit contact" />
+                        <CreateContact contactDetails={contactDetails} open={open} onClose={() => setOpen(false)} />
+                        <button onClick={() => setOpen(true)} >Open</button>
                         <SytledIcon name='delete' color="red" title="Delete contact" />
                     </StyledPara>
                 </Card.Description>

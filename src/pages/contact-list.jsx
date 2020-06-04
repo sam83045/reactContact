@@ -86,8 +86,8 @@ const ContactList = () => {
                 <Grid.Row>
                     {
                         contactData.map(contact => (
-                            <Grid.Column width={4}>
-                                <ContactCard key={contact.id} contactDetails={contact} />
+                            <Grid.Column width={4} key={contact.id}>
+                                <ContactCard  contactDetails={contact} />
                             </Grid.Column>
                         ))
                     }
