@@ -7,8 +7,8 @@ font-size: 2rem;
 
 export default function Header() {
   return (
-    <heaer>
+    <header>
       <StyledH1>Contact Manager</StyledH1>
-    </heaer>
+    </header>
   );
 }
