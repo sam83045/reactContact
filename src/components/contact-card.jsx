@@ -37,12 +37,12 @@ const ContactCard = ({ contactDetails }) => {
                     <br />
 
                     <StyledPara>
-                        <CreateContact contactDetails={contactDetails} open={open} onClose={() => setOpen(false)} />
-                        <button onClick={() => setOpen(true)} >Open</button>
+                        <SytledIcon name='edit' color="green" title="Edit contact" onClick={() => setOpen(true)} />
                         <SytledIcon name='delete' color="red" title="Delete contact" />
                     </StyledPara>
                 </Card.Description>
             </Card.Content>
+            <CreateContact contactDetails={contactDetails} open={open} onClose={() => setOpen(false)} />
         </StyledCard>
     )
 }

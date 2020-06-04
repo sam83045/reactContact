@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
-import styled from "styled-components";
-import { Icon, Input, Grid, Form } from "semantic-ui-react";
+import {  Form } from "semantic-ui-react";
 import { Button, Modal } from 'semantic-ui-react';
-
-const SytledIcon = styled(Icon)`
-cursor: pointer;
-`;
-
 class CreateContact extends Component {
     constructor(props) {
         super(props);
@@ -15,20 +9,13 @@ class CreateContact extends Component {
             ...this.props.contactDetails
         }
     }
-    // componentDidUpdate(p) {
-    //     console.log("pos", p);
-    //     if (this.state.open !== this.props.open) {
-    //         this.setState({ open: this.props.open });
-    //     }
-    // }
-    // handelOpen = () => this.setState({ open: true });
-    // handleClose = () => {this.props.onClose();};
-    handleChange = (e, { name, value }) => this.setState({ [name]: value })
+    handleChange = (e, { name, value }) => this.setState({ [name]: value });
+
     render() {
         return (
             <>
                 <Modal
-                    // trigger={<SytledIcon name='edit' color="green" title="Edit contact" onClick={this.handelOpen} />}
+                    // trigger={}
                     open={this.props.open}
                     closeOnEscape={true}
                     closeOnDimmerClick={true}
@@ -60,7 +47,7 @@ class CreateContact extends Component {
                             Cancel
                         </Button>
                         <Button
-                            onClick={this.handleClose}
+                            onClick={this.props.onClose}
                             positive
                             content={this.isCreate ? "Create" : "Update"}
                         />
