@@ -6,7 +6,8 @@ class CreateContact extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            open: false, isCreate: false,
+            open: false,
+            isCreate: !!this.props.contactDetails,
             formData: { ...this.props.contactDetails }
         }
     }
@@ -19,7 +20,7 @@ class CreateContact extends Component {
     };
 
     handleSubmit = () => {
-        // this.propss.updateContact();
+        this.props.updateContactList(this.state.formData);
         this.props.onClose();
     }
     render() {
@@ -81,8 +82,6 @@ class CreateContact extends Component {
                                     </Grid.Column>
                                 </Grid.Row>
                             </Grid>
-
-
                         </Form>
                     </Modal.Content>
                     <Modal.Actions>
@@ -103,7 +102,7 @@ class CreateContact extends Component {
 }
 
 CreateContact.defaultProps = {
-    formData: {
+    contactDetails: {
         firstName: '',
         lastName: '',
         email: '',

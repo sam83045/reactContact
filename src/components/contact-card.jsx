@@ -18,7 +18,7 @@ const SytledIcon = styled(Icon)`
 cursor: pointer;
 `;
 
-const ContactCard = ({ contactDetails }) => {
+const ContactCard = ({ contactDetails, updateContactList }) => {
     const [open, setOpen] = useState(false);
     return (
         <StyledCard>
@@ -38,11 +38,11 @@ const ContactCard = ({ contactDetails }) => {
 
                     <StyledPara>
                         <SytledIcon name='edit' color="green" title="Edit contact" onClick={() => setOpen(true)} />
-                        <SytledIcon name='delete' color="red" title="Delete contact" />
+                        <SytledIcon name='delete' color="red" title="Delete contact" onClick={() => updateContactList(contactDetails, "delete")} />
                     </StyledPara>
                 </Card.Description>
             </Card.Content>
-            <CreateContact contactDetails={contactDetails} open={open} onClose={() => setOpen(false)} />
+            <CreateContact contactDetails={contactDetails} open={open} onClose={() => setOpen(false)} updateContactList={updateContactList} />
         </StyledCard>
     )
 }
