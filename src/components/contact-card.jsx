@@ -27,8 +27,8 @@ const ContactCard = ({ contactDetails }) => {
                     {contactDetails.firstName} {contactDetails.lastName}
                 </Card.Header>
                 <Card.Description>
-                    <StyledAnchor href={"tel:" + contactDetails?.phone}>
-                        <Icon name="phone square" />{contactDetails.phone}
+                    <StyledAnchor href={"tel:" + contactDetails?.contact}>
+                        <Icon name="phone square" />{contactDetails.contact}
                     </StyledAnchor>
                     <br />
                     <StyledAnchor href={"mailto:" + contactDetails?.email}>
