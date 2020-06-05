@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import ContactCard from "../components/contact-card";
-import { Grid, Button } from "semantic-ui-react";
+import { Grid, Button, Icon } from "semantic-ui-react";
 import CreateContact from "../components/create-contact";
 
 const ContactList = ({ contactData }) => {
@@ -10,7 +10,12 @@ const ContactList = ({ contactData }) => {
 
     const updateContactList = (contact, operation) => {
         const newList = [...list];
-        if (operation) {
+
+        if (operation === "create") {
+            const newId = newList[newList.length - 1].id + 1;
+            contact.id = newId;
+            newList.push(contact);
+        } else {
             const foundIndex = newList.findIndex((item) => {
                 return item.id === contact.id;
             });
@@ -19,20 +24,22 @@ const ContactList = ({ contactData }) => {
             } else {
                 newList.splice(foundIndex, 1);
             }
-        } else {
-            const newId = newList[newList.length - 1].id + 1;
-            contact.id = newId;
-            newList.push(contact);
         }
         setList(newList);
     }
     return (
-
-        <React.Fragment>
-            <Header updateContactList={updateContactList}></Header>
-            <Button onClick={() => { setOpen(true) }}>Create New</Button>
-            <CreateContact open={open} onClose={() => setOpen(false)} updateContactList={updateContactList} />
+        <>
+            <Header />
             <Grid container>
+                <Grid.Row>
+                    <Grid.Column width={16}>
+                        <Button onClick={() => { setOpen(true) }} floated="right" icon labelPosition='left' basic color="green">
+                            <Icon name='add' />
+                            Create New
+                            </Button>
+                        <CreateContact open={open} onClose={() => setOpen(false)} updateContactList={updateContactList} />
+                    </Grid.Column>
+                </Grid.Row>
                 <Grid.Row>
                     {
                         list.map(contact => (
@@ -43,8 +50,8 @@ const ContactList = ({ contactData }) => {
                     }
                 </Grid.Row>
             </Grid>
-        </React.Fragment>
+        </>
     )
 }
 
-export default ContactList; 
+export default ContactList;

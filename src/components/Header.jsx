@@ -3,13 +3,15 @@ import styled from "styled-components";
 
 
 const StyledH1 = styled.h1`
-font-size: 2rem;
+    font-size: 2rem;
 `;
 
-export default function Header({ updateContactList }) {
+const Header = () => {
   return (
     <header>
       <StyledH1>Contact Manager</StyledH1>
     </header>
   );
 }
+
+export default Header;

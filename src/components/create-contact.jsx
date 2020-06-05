@@ -7,7 +7,7 @@ class CreateContact extends Component {
         super(props);
         this.state = {
             open: false,
-            isCreate: !!this.props.contactDetails,
+            isCreate: !this.props.contactDetails?.id,
             formData: { ...this.props.contactDetails }
         }
     }
@@ -20,7 +20,7 @@ class CreateContact extends Component {
     };
 
     handleSubmit = () => {
-        this.props.updateContactList(this.state.formData);
+        this.props.updateContactList(this.state.formData, this.state.isCreate ? "create" : "update");
         this.props.onClose();
     }
     render() {
@@ -33,7 +33,7 @@ class CreateContact extends Component {
                     onClose={this.props.onClose}
                     size="small"
                 >
-                    <Modal.Header>{this.isCreate ? "Create" : "Edit"} Contact</Modal.Header>
+                    <Modal.Header>{this.state.isCreate ? "Create" : "Edit"} Contact</Modal.Header>
                     <Modal.Content>
                         <Form>
                             <Grid>
@@ -85,14 +85,15 @@ class CreateContact extends Component {
                         </Form>
                     </Modal.Content>
                     <Modal.Actions>
-                        <Button onClick={this.props.onClose} negative>
+                        <Button basic onClick={this.props.onClose} negative>
                             Cancel
                         </Button>
                         <Button
+                            basic
                             type="submit"
                             onClick={this.handleSubmit}
                             positive
-                            content={this.isCreate ? "Create" : "Update"}
+                            content={this.state.isCreate ? "Create" : "Update"}
                         />
                     </Modal.Actions>
                 </Modal>
