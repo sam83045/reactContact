@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.js": "/reactContact/static/js/main.0c6214e6.chunk.js",
+    "main.js.map": "/reactContact/static/js/main.0c6214e6.chunk.js.map",
+    "runtime-main.js": "/reactContact/static/js/runtime-main.04da3709.js",
+    "runtime-main.js.map": "/reactContact/static/js/runtime-main.04da3709.js.map",
+    "static/css/2.7424be32.chunk.css": "/reactContact/static/css/2.7424be32.chunk.css",
+    "static/js/2.4edd78df.chunk.js": "/reactContact/static/js/2.4edd78df.chunk.js",
+    "static/js/2.4edd78df.chunk.js.map": "/reactContact/static/js/2.4edd78df.chunk.js.map",
+    "index.html": "/reactContact/index.html",
+    "precache-manifest.51486d84cd9daa0d151c3ca19e198d4b.js": "/reactContact/precache-manifest.51486d84cd9daa0d151c3ca19e198d4b.js",
+    "service-worker.js": "/reactContact/service-worker.js",
+    "static/css/2.7424be32.chunk.css.map": "/reactContact/static/css/2.7424be32.chunk.css.map",
+    "static/js/2.4edd78df.chunk.js.LICENSE.txt": "/reactContact/static/js/2.4edd78df.chunk.js.LICENSE.txt",
+    "static/media/semantic.css": "/reactContact/static/media/outline-icons.ef60a4f6.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.04da3709.js",
+    "static/css/2.7424be32.chunk.css",
+    "static/js/2.4edd78df.chunk.js",
+    "static/js/main.0c6214e6.chunk.js"
+  ]
+}
