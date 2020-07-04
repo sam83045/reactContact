@@ -3,8 +3,10 @@ import Header from "../components/Header";
 import ContactCard from "../components/contact-card";
 import { Grid, Button, Icon } from "semantic-ui-react";
 import CreateContact from "../components/create-contact";
+import { useSelector } from "react-redux";
 
-const ContactList = ({ contactData }) => {
+const ContactList = () => {
+    const contactData = useSelector((state) => state.contacts);
     const [list, setList] = useState(contactData);
     const [open, setOpen] = useState(false);
 
